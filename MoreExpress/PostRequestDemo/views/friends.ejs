@@ -1,0 +1,15 @@
+<h1> FRIENDS LIST GOES HERE</h1>
+
+<!--(friend) can be any value (x), (y), (z)-->
+<% friends.forEach(function(friend){ %>
+    <!--Note we use < %= inside of the <li> as we want the value to be replaced in the HTML with the list variable friend-->
+    <li><%= friend %></li>
+<% }); %>
+
+<!--method="POST" we want to send data-->
+<!--action="/addfriend" to this route, click button to see if route works-->
+<!--name="newfriend" is the key in the K/V pair, e.g newfriend:bob, we look the value up using this key-->
+<form action="/addfriend" method="POST">
+    <input type="text" name="newfriend" placeholder="name">
+    <button>I made a new friend!</button>
+</form>

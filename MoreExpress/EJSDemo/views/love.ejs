@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+<!--Takes the last part of the route and displays it on screen, the "thing" variable is passed from app.js and made = to "thingVar"-->
+<h1>You fell in love with: <%= thingVar.toUpperCase() %></h1>
+
+<!--Every piece of JS has to be wrapped in ejs tags, here we use < % otherwise a token error is returned-->
+<!-- < %= is when we want to return something to HTML e.g <h1> -->
+<!-- < % is when we want to run logic, e.g if statements, loops etc -->
+<% if(thingVar.toLowerCase() === "rusty"){ %>
+    <p>Good choice, Rusty is the best!</p>
+<% } else { %>
+    <p> bad choice, you should have said rusty</p>
+<% } %>
+<p>P.S this is the love.ejs file!</p>
+
+<!--Sends back 1 file including content + header.ejs + footer.ejs partials-->
+<% include partials/footer %>
