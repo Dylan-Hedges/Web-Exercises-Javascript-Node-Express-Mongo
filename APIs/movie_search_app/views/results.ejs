@@ -1,0 +1,22 @@
+<h1> Results page </h1>
+
+<!--Only works when API/JSON is an array-->
+
+<!--Take the parsed JS obect "data" defined in app.js (orginally the body in a long string)-->
+<!--Loop through the data object (an array) using a forEach-->
+<!--For each value/index, execute a function and store the value/index in a temporary variable called "movie"-->
+<!--As what is storred in the temporary variable is an object, we can call the "Title" key-->
+<!--Display title as an <li> on screen-->
+<ul>
+    <% data["Search"].forEach(function(movie){ %>
+        <li>
+            <strong>
+                <%= movie["Title"] %>
+            </strong> 
+            - <%= movie["Year"] %>
+        </li>
+    <% }) %>
+</ul>
+
+<!--Allows user to search again-->
+<a href="/">Search Again</a>
