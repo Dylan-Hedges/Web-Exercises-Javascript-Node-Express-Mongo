@@ -1,0 +1,33 @@
+<!--Bootstrap wont be applied until you include partials/header, link to Bootstrap CDN is in this template-->
+<% include partials/header %>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Create a new campground</h1>
+        
+        <div style="width: 30%; margin: 25px auto">
+            <!--name="" is used to grab data from "req.body" e.g "req.body.name"-->
+            <form action="/campgrounds" method="POST">
+                <!--"form-group" groups things together but also adds spacing between elements-->
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="image" placeholder="image url">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="description" placeholder="description">
+                </div>
+                <div class="form-group">
+                    <!--"btn-block" make button take up entire line-->
+                    <!--"btn-primary" make button blue-->
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/campgrounds">Back</a>
+        </div>
+        
+    </div>
+</div>
+
+<% include partials/footer %>
