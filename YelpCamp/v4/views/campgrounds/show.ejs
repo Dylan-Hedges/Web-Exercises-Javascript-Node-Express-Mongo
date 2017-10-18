@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+<!--Displays campground name-->
+<h1><%=campground.name%></h1>
+
+<!--Displays campground image-->
+<img src ="<%=campground.image%>">
+
+<!--Displays campground description-->
+<p><%= campground.description %></p>
+
+<p>
+    <a class = "btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
+</p>
+
+
+<!--Loops through all the comments for a campground and displays the author + comment on screen-->
+<% campground.comments.forEach(function(comment){ %>
+    <p>
+        <strong><%= comment.author %></strong> - <%= comment.text %>
+    </p>
+<% }) %>
+
+<% include ../partials/footer %>
