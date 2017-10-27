@@ -1,0 +1,12 @@
+<!--We only use "./" and not "../" as we do not need to go back out a level unlike with "index.ejs"-->
+<% include ./partials/header %>
+
+<h1>Sing Up!</h1>
+<form action="/register" method="post">
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <button>Sign Up!</button>
+</form>
+
+<!--Only "./" for partials as well-->
+<% include ./partials/footer %>
