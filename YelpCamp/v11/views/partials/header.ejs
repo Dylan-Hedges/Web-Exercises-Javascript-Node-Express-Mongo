@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!--You wont be able to link to this without first having "app.use(express.static(__dirname + "/public"));" in app.js-->
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+    
+    <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">YelpCamp</a>
+            </div>
+            <!--Will collapse items in navbar, does not include hamburger-->
+            <div class="collapse navbar-collapse">
+                <!--Without "nav" at the start it wont display correctly-->
+                <ul class="nav navbar-nav navbar-right">
+                    <!--Displays buttons based on if the user is logged in - If user is not loggd in (if currentUser is empty)-->
+                    <% if(!currentUser){ %>
+                        <!--Display login and register buttons-->
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Sign Up</a></li>
+                    <% } else { %>
+                        <li><a href="#">Welcome <%= currentUser.username %></a></li>
+                        <!--Display logout button (if logged in)-->
+                        <li><a href="/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <!--(error && error.length > 0) - even when error is empty, its still an array and will display a box on screen, so needs to be "> 0"-->
+        <!--If there is anything in the "error" array then display the following-->
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <!--"error" refers to the key for the flash message-->
+                <%= error %>
+            </div>
+            <% }%>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+        
+   
+    
+    
