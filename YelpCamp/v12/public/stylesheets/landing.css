@@ -1,0 +1,102 @@
+body {
+  background-color: #000;
+}
+
+#landing-header {
+  /*"z-index: 1" - refers to the layering of objects on the page, will layer above other objects*/
+  z-index: 1;
+  /*"position: relative; - default is static, if left it will ignore the z-index*/
+  position: relative;
+  /*text-align: center; - centers objects horizontally*/
+  text-align: center;
+  /*padding-top: 40vh; - centers objects vertically*/
+  padding-top: 40vh;
+}
+
+#landing-header h1 {
+  color: #fff;
+}
+
+.slideshow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*z-index: 0; - makes sure background image is behind the text*/
+  z-index: 0;
+  /*list-style: none; - removes bullets*/
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*Styles <li>*/
+.slideshow li { 
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*background-size: cover; - allows image to take up entire page*/
+  background-size: cover;
+  /*background-position: 50% 50%; - centers images on the page*/
+  background-position: 50% 50%;
+  /*background-repeat: no-repeat; - prevents image repating to fill in space*/
+  background-repeat: no-repeat;
+  /*opacity: 0; - images are invisible to start and fade in using animation*/
+  opacity: 0;
+  z-index: 0;
+  /*opacity: 0; - animation that fades images in and out, imageAnimation = name, 50s = 50 seconds, linear = same speed from begging to end, infinite = loop forever*/
+  animation: imageAnimation 50s linear infinite; 
+}
+
+/*Adds background images to <li>*/
+.slideshow li:nth-child(1) { 
+  background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+}
+.slideshow li:nth-child(2) { 
+  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+  /*animation-delay: 10s; start the animation for image 2 after 10 seconds*/
+  animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+  animation-delay: 40s; 
+}
+
+/*Creates animation (refered to above using "animation:")*/
+@keyframes imageAnimation { 
+  /*from 0%-10% of the animation fade in image opacity from 0 -> 1*/
+  0% { 
+    opacity: 0; 
+    animation-timing-function: ease-in;
+  }
+  /*10-20% - keep image displated*/
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  /*20-30% - keep image displayed*/
+  20% {
+    opacity: 1
+  }
+  /*30% + fade image out*/
+  30% {
+    opacity: 0
+  }
+}
+
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
