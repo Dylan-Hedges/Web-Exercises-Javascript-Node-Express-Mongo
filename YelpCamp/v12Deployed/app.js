@@ -19,15 +19,10 @@ var commentRoutes  = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-//Back up/safety net incase if environment vairable breaks, stores location in variable URL, alternative to using command line, "process.env.DATABASEURL" - replaces DB path, created using command line
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_v3";
-//Connects to development DB (local) - Mongodb connection - connect to and create the db (if not already created, ", {useMongoClient: true}" is optional and removes a warning )
-mongoose.connect(url);
 //Connects to production DB (mlab)
-//mongoose.connect("mongodb://dylan:password@ds243805.mlab.com:43805/yelpcamp9", {useMongoClient: true});
+mongoose.connect(process.env.MLAB_CONNECTION, {useMongoClient: true});
 
-
-//S27.5 in course, replaces Mongoose's default promise library with JS's native promise library
+//Replaces Mongoose's default promise library with JS's native promise library (S27.5 in course)
 mongoose.Promise = global.Promise;
 
 //Convert body (string) to a JS object
